@@ -23,5 +23,5 @@ is twice as likely to be chosen. If quantity is given, then calls to `choose()`
 will only return that item while some are available. Each `choose()` that
 selects that item will reduce its quantity by 1.
 
-Items can be anything, not just strings. They can be an arrays, numbers, JSON
+Items can be anything, not just strings. They can be arrays, numbers, JSON
 data, null, functions... even another LootTable!
