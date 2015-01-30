@@ -64,7 +64,7 @@ LootTable.prototype.choose = function() {
     }
 
     var choice = 0;
-    var randomNumber = game.rnd.between(1, totalWeight);
+    var randomNumber = Math.floor(Math.random() * totalWeight + 1);
     var weight = 0;
     for(i = 0; i < this.table.length; i++) {
         v = this.table[i];
