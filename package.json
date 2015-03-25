@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jotson/LootTable.js.git#UDM"
+    "url": "git://github.com/jotson/LootTable.js.git#UMD"
   },
   "author": "John Watson <john@watson-net.com> (http://flagrantdisregard.com/)",
   "license": "MIT",
