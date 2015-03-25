@@ -28,4 +28,6 @@ data, null, functions... even another LootTable!
 
 # Node, UMD
 
-The UMD branch contains a version packaged for Node.
+The UMD branch contains a version packaged for Node. Install with
+
+`npm install jotson/LootTable.js#UMD`
