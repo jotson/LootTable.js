@@ -25,3 +25,7 @@ selects that item will reduce its quantity by 1.
 
 Items can be anything, not just strings. They can be arrays, numbers, JSON
 data, null, functions... even another LootTable!
+
+# Node, UMD
+
+The UMD branch contains a version packaged for Node.
