@@ -65,4 +65,4 @@ class LootTable {
   };
 };
 
-if (module) module.exports = LootTable;
+if (typeof module !== 'undefined') module.exports = LootTable;
