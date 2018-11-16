@@ -27,6 +27,14 @@ Items can be anything, not just strings. They can be arrays, numbers, JSON
 data, null, functions... even another LootTable!
 
 
+## Building
+
+```
+npm install
+npm run build
+```
+
+
 ## Global script example
 
 include a `<script src="LootTable.js"></script>` tag on your page and you can use loot table as a global variable.
