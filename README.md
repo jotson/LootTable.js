@@ -26,8 +26,23 @@ selects that item will reduce its quantity by 1.
 Items can be anything, not just strings. They can be arrays, numbers, JSON
 data, null, functions... even another LootTable!
 
-# Node, UMD (by @mreinstein)
 
-The UMD branch contains a version packaged for Node. Install with
+## installation
 
-`npm install jotson/LootTable.js#UMD`
+## global script example
+
+include a `<script src="LootTable.js"></script>` tag on your page and you can use loot table as a global variable.
+
+
+## es modules example
+
+```javascript
+import LootTable from 'loot-table';
+```
+
+
+## commonjs (node) example
+
+```javascript
+var LootTable = require('loot-table');
+```
