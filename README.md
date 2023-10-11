@@ -9,12 +9,15 @@ map generation, and many other processes. There's a good overview of loot tables
 ## Example
 
 ```javascript
-var loot = new LootTable();
+import LootTable from 'loot-table';
+
+
+const loot = new LootTable();
 loot.add('sword', 20);
 loot.add('shield', 5);
 loot.add('gold', 5);
 loot.add(null, 1);
-var item = loot.choose(); // most likely a sword, sometimes null
+const item = loot.choose(); // most likely a sword, sometimes null
 ```
 
 Weights are arbitrary, not percentages, and don't need to add up to 100.
@@ -29,26 +32,7 @@ data, null, functions... even another LootTable!
 
 ## Building
 
-```
+```bash
 npm install
 npm run build
-```
-
-
-## Global script example
-
-include a `<script src="LootTable.js"></script>` tag on your page and you can use loot table as a global variable.
-
-
-## ES modules example
-
-```javascript
-import LootTable from 'loot-table';
-```
-
-
-## CommonJS (node) example
-
-```javascript
-var LootTable = require('loot-table');
 ```
