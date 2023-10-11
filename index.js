@@ -8,16 +8,15 @@
  *
  * Example:
  *
- * var loot = new LootTable();
+ * const loot = new LootTable();
  * loot.add('sword', 20);
  * loot.add('shield', 5);
  * loot.add('gold', 5);
  * loot.add(null, 1);
- * var item = loot.choose(); // most likely a sword, sometimes null
+ * const item = loot.choose(); // most likely a sword, sometimes null
  */
-var LootTable = function(table) {
-    this.table = [];
-    if (table !== undefined) this.table = table;
+const LootTable = function(table=[]) {
+    this.table = table;
 };
 
 LootTable.prototype.constructor = LootTable;
@@ -43,32 +42,34 @@ LootTable.prototype.clear = function() {
  * @param {number} quantity (optional) Quantity available, defaults to Infinite
  */
 LootTable.prototype.add = function(item, weight, quantity) {
-    if (weight === undefined || weight === null || weight <= 0) weight = 1;
-    if (quantity === undefined || quantity === null || quantity <= 0) quantity = Number.POSITIVE_INFINITY;
-    this.table.push({ item: item, weight: weight, quantity: quantity });
+    if (weight === undefined || weight === null || weight <= 0)
+        weight = 1;
+    if (!Number.isInteger(quantity) || quantity <= 0)
+        quantity = Number.POSITIVE_INFINITY;
+
+    this.table.push({ item, weight, quantity });
 };
 
 /**
  * Return a random item from the LootTable
  */
 LootTable.prototype.choose = function() {
-    if (this.table.length === 0) return null;
+    if (this.table.length === 0)
+        return null;
     
-    var i, v;
-    var totalWeight = 0;
-    for(i = 0; i < this.table.length; i++) {
-        v = this.table[i];
-        if (v.quantity > 0) {
+    let totalWeight = 0;
+    for (const v of this.table)
+        if (v.quantity > 0)
             totalWeight += v.weight;
-        }
-    }
 
-    var choice = 0;
-    var randomNumber = Math.floor(Math.random() * totalWeight + 1);
-    var weight = 0;
-    for(i = 0; i < this.table.length; i++) {
-        v = this.table[i];
-        if (v.quantity <= 0) continue;
+    let choice = 0;
+    const randomNumber = Math.floor(Math.random() * totalWeight + 1);
+    let weight = 0;
+
+    for (let i = 0; i < this.table.length; i++) {
+        const v = this.table[i];
+        if (v.quantity <= 0)
+            continue;
 
         weight += v.weight;
         if (randomNumber <= weight) {
@@ -77,10 +78,11 @@ LootTable.prototype.choose = function() {
         }
     }
 
-    var chosenItem = this.table[choice];
+    const chosenItem = this.table[choice];
     this.table[choice].quantity--;
 
     return chosenItem.item;
 };
+
 
 export default LootTable;
